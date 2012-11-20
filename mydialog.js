@@ -140,8 +140,6 @@ function _inspect(obj,simple){
 				var pat = methods.checkHeader(jXhr);
 				if(pat == 1){
 					$dialog.remove();
-					// show the action result on the main html 
-					methods.showActionResult(jXhr);
 				}else if(pat == 2){
 					// close the dialog and redirect the page to response
 					$dialog.remove();
@@ -185,16 +183,6 @@ function _inspect(obj,simple){
 					return 2;
 				}
 				return 0;
-			},
-			showActionResult:function (jXhr){
-				if(jXhr.getResponseHeader('ACTION_RESULT')){
-					var result = jXhr.getResponseHeader('ACTION_RESULT');
-					result = result.charAt(0).toUpperCase() + result.slice(1); 
-					if(jXhr.getResponseHeader('ACTION_RESULT_MSG')){
-						$('.infoBox.type' + result).html($.parseJSON(jXhr.getResponseHeader('ACTION_RESULT_MSG')).msg);
-					}
-					$('.infoBox.type' + result).show('fast');
-				}
 			}
 		};// end of methods
 		$(document).on('click','.tdxDialogContents a:not(".tdxConfirmDialog")',function(ev){
