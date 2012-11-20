@@ -130,7 +130,7 @@ function _inspect(obj,simple){
 				if(str.match(pattern)){
 					return str.replace(pattern, '$1');	
 				}
-				pattern = /[\s\S]*?<\!-- ajaxContent -->([\s\S]*)<\!-- \/ajaxContent -->[\s\S]*/i;
+				pattern = /[\s\S]*?<\!--startAjax-->([\s\S]*)<\!--endAjax-->[\s\S]*/i;
 				if(str.match(pattern)){
 					return str.replace(pattern, '$1');	
 				}
